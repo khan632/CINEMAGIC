@@ -17,6 +17,23 @@ const Header = () => {
     const [showSearch, setShowSearch] = useState("");
     const navigate = useNavigate();
     const location = useLocation();
+    const SCROLL_Y_VALUE = 320;
+
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [location])
+
+    const controlNavbar = () => {
+      window.scrollY > SCROLL_Y_VALUE && !mobileMenu ? (window.scrollY > lastScrollY ? setShow("hide") : setShow('show')) : setShow('top')
+      setLastScrollY(window.scrollY);
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', controlNavbar);
+        return () => {
+          window.removeEventListener('scroll', controlNavbar);
+        }
+    }, [lastScrollY])
 
     const searchQueryHandler = (event) => {
       if (event.key === "Enter" && query.length > 0) {
@@ -38,6 +55,11 @@ const Header = () => {
       setShowSearch(false);
     }
 
+    const navigateHandler = (type) => {
+      type === "movie" ? navigate('/explore/movie') : navigate('/explore/tv');
+      setMobileMenu(false);
+    }
+
     return (
         <header className={`header ${mobileMenu ? 'mobileView' : ''} ${show}`}>
           <ContentWrapper>
@@ -49,15 +71,15 @@ const Header = () => {
             </div>
 
             <ul className="menuItems">
-              <li className="menuItem">Movies</li>
-              <li className="menuItem">TV Shows</li>
+              <li className="menuItem" onClick={() => navigateHandler("movie")}>Movies</li>
+              <li className="menuItem" onClick={() => navigateHandler("tv")}>TV Shows</li>
               <li className="menuItem">
                 <HiOutlineSearch onClick={openSearch}/>
               </li>
             </ul>
 
             <div className="mobileMenuItems">
-              <HiOutlineSearch />
+              <HiOutlineSearch onClick={openSearch} />
               {
                 mobileMenu ? ( <VscChromeClose onClick={() => setMobileMenu(false)} /> ) : ( <SlMenu onClick={openMobileMenu} /> )
               }
