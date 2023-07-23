@@ -16,13 +16,13 @@ const Trending = () => {
     }
 
   return (
-    <div className="carouselSection">
-        <ContentWrapper>
-            <span className='carouselTitle'>Trending</span>
-            <SwtichTabs data={['day', 'week']} onTabChange={onTabChange} />
-        </ContentWrapper>
-        <Carousel data={data?.result} loading={loading} />
-    </div>
+        <div className="carouselSection">
+            <ContentWrapper>
+                <span className="carouselTitle">Trending</span>
+                <SwtichTabs data={["Day", "Week"]} onTabChange={onTabChange} />
+            </ContentWrapper>
+            <Carousel data={data?.results} loading={loading} />
+        </div>
   )
 }
 
