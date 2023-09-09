@@ -20,4 +20,19 @@ const RatingCircle = ({ rating }) => {
     );
 }
 
+// array of obj => 
+
+/* 
+[
+     {}
+     {}
+     {}
+]
+*/
+
+//  fun (rating) => {
+
+// }
+
+// switch --> 5.0  5.4 -> #xyx, 5.8 -> #
 export default RatingCircle
