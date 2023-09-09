@@ -111,7 +111,7 @@ const DetailsBanner = ({ video, crew }) => {
                                             {data.status && (
                                                 <div className="infoItem">
                                                     <span className="text bold">
-                                                        Status:{" "}
+                                                        Status:
                                                     </span>
                                                     <span className="text">
                                                         {data.status}
@@ -121,7 +121,7 @@ const DetailsBanner = ({ video, crew }) => {
                                             {data.release_date && (
                                                 <div className="infoItem">
                                                     <span className="text bold">
-                                                        Release Date:{" "}
+                                                        Release Date:
                                                     </span>
                                                     <span className="text">
                                                         {dayjs(
@@ -133,7 +133,7 @@ const DetailsBanner = ({ video, crew }) => {
                                             {data.runtime && (
                                                 <div className="infoItem">
                                                     <span className="text bold">
-                                                        Runtime:{" "}
+                                                        Runtime:
                                                     </span>
                                                     <span className="text">
                                                         {toHoursAndMinutes(
@@ -147,7 +147,7 @@ const DetailsBanner = ({ video, crew }) => {
                                         {director?.length > 0 && (
                                             <div className="info">
                                                 <span className="text bold">
-                                                    Director:{" "}
+                                                    Director:
                                                 </span>
                                                 <span className="text">
                                                     {director?.map((d, i) => (
@@ -165,7 +165,7 @@ const DetailsBanner = ({ video, crew }) => {
                                         {writer?.length > 0 && (
                                             <div className="info">
                                                 <span className="text bold">
-                                                    Writer:{" "}
+                                                    Writer:
                                                 </span>
                                                 <span className="text">
                                                     {writer?.map((d, i) => (
@@ -183,7 +183,7 @@ const DetailsBanner = ({ video, crew }) => {
                                         {data?.created_by?.length > 0 && (
                                             <div className="info">
                                                 <span className="text bold">
-                                                    Creator:{" "}
+                                                    Creator:
                                                 </span>
                                                 <span className="text">
                                                     {data?.created_by?.map(

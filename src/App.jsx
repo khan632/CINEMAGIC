@@ -16,7 +16,6 @@ import PageNotFound from './pages/404/PageNotFound'
 function App() {
   const dispatch = useDispatch();
   const {url} = useSelector((state) => state.home)
-  console.log(url, "url");
   useEffect(() => {
     fetchApiConfig();
     getAllGenres();
@@ -44,13 +43,10 @@ function App() {
     })
 
     const genreData = await Promise.all(promises);
-    console.log(genreData, "gennn");
 
     genreData.map(({ genres }) => {
       return genres.map((item) => (apiGenres[item.id] = item));
     });
-
-    console.log(apiGenres, "aoo");
 
     dispatch(getGenres(apiGenres))
 
